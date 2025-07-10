@@ -1,0 +1,20 @@
+{
+  "name": "cloudtak-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "homepage": "https://github.com/dfpc-coe/CloudTAK-Docs#readme",
+  "bugs": {
+    "url": "https://github.com/dfpc-coe/CloudTAK-Docs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfpc-coe/CloudTAK-Docs.git"
+  },
+  "license": "ISC",
+  "author": "Nicholas Ingalls <nicholas.ingalls@state.co.us>",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

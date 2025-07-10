@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudTAK COP</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d; /* Dark background similar to Anduril */
+            color: #e0e0e0; /* Light text color */
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            @apply bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105;
+        }
+        .btn-secondary {
+            @apply bg-gray-700 hover:bg-gray-600 text-gray-200 font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 border border-gray-600;
+        }
+        .section-title {
+            @apply text-4xl md:text-5xl font-extrabold text-white mb-8 text-center;
+        }
+        .card {
+            @apply bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+        }
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #222;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a4a4a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a5a5a;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12 fixed w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://placehold.co/40x40/6366f1/ffffff?text=CT" alt="CloudTAK Logo" class="h-10 w-10 rounded-full mr-3">
+                <a href="#" class="text-white text-2xl font-bold">CloudTAK</a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-white transition duration-200">Home</a>
+                <a href="#capabilities" class="text-gray-300 hover:text-white transition duration-200">Capabilities</a>
+                <a href="#technology" class="text-gray-300 hover:text-white transition duration-200">Technology</a>
+                <a href="#applications" class="text-gray-300 hover:text-white transition duration-200">Applications</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-200">About</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition duration-200">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-900 mt-4 py-2 rounded-lg shadow-lg">
+            <a href="#home" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Home</a>
+            <a href="#capabilities" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Capabilities</a>
+            <a href="#technology" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Technology</a>
+            <a href="#applications" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Applications</a>
+            <a href="#about" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">About</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/1a1a1a/ffffff?text=CloudTAK+Background');">
+            <div class="absolute inset-0 bg-black opacity-70"></div>
+            <div class="relative z-10 p-6 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+                    Unlocking Unprecedented <span class="gradient-text">Situational Awareness</span> at the Tactical Edge.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-10">
+                    CloudTAK revolutionizes how teams collaborate and operate, delivering real-time, shared understanding for critical missions.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#capabilities" class="btn-primary">Discover CloudTAK</a>
+                    <a href="#applications" class="btn-secondary">See It in Action</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section id="mission" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <h2 class="section-title">Empowering Frontline Teams with Real-time Intelligence.</h2>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    The modern operational landscape demands immediate, accurate information. CloudTAK is dedicated to transforming how military and first responder organizations achieve shared situational awareness, enhance coordination, and make critical decisions at machine speed. By leveraging cloud-based architecture, we bring cutting-edge data sharing and command and control capabilities to your team, anywhere, anytime.
+                </p>
+            </div>
+        </section>
+
+        <!-- Capabilities Section -->
+        <section id="capabilities" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">CloudTAK: A Suite of Powerful Solutions.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-white mb-4">Shared Operating Picture</h3>
+                        <p class="text-gray-300 mb-4">Visualize team members, assets, and threats in real-time on a unified map. Collaborate with intuitive mapping tools and dynamic overlays.</p>
+                        <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Learn More &rarr;</a>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-white mb-4">Secure Data Exchange</h3>
+                        <p class="text-gray-300 mb-4">Facilitate instant and secure sharing of critical information, including locations, messages, photos, and sensor feeds, even in low-bandwidth environments.</p>
+                        <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Learn More &rarr;</a>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-white mb-4">Cross-Platform Interoperability</h3>
+                        <p class="text-gray-300 mb-4">Connect users on various devices (Android, iOS, Windows) through the TAK ecosystem (ATAK, iTAK, WinTAK), ensuring everyone operates with the same information.</p>
+                        <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Learn More &rarr;</a>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-white mb-4">Cloud-Native Architecture</h3>
+                        <p class="text-gray-300 mb-4">Benefit from rapid deployment, enhanced scalability, and reduced infrastructure costs with a modern cloud-based solution.</p>
+                        <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section id="technology" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="section-title">Powered by Cloud-Optimized TAK.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="https://placehold.co/600x400/2d2d2d/ffffff?text=CloudTAK+Tech" alt="CloudTAK Technology" class="rounded-xl shadow-lg mb-8 md:mb-0">
+                    </div>
+                    <div>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            CloudTAK integrates the proven capabilities of the Team Awareness Kit (TAK) with a resilient, high-performance cloud backbone. This enables:
+                        </p>
+                        <ul class="space-y-4 text-gray-300 text-lg">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-indigo-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                <span><strong class="text-white">Real-time Synchronization:</strong> Instantly update and share geospatial data, chat, and other critical information across all connected devices.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-indigo-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                <span><strong class="text-white">Flexible Deployment:</strong> Deploy CloudTAK rapidly in various operational environments, leveraging existing network infrastructure or small, incident-deployed servers.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-indigo-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                <span><strong class="text-white">Open and Extensible:</strong> Built on an open-source architecture, CloudTAK supports custom plugins and integrations, allowing you to tailor the system to your specific mission requirements.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-indigo-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                <span><strong class="text-white">Enhanced Security:</strong> Secure by design, CloudTAK ensures your tactical data is protected with robust encryption and access controls.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section id="applications" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">CloudTAK: Essential for Every Critical Mission.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card text-center">
+                        <img src="https://placehold.co/100x100/6366f1/ffffff?text=ER" alt="Emergency Response Icon" class="mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-bold text-white mb-3">Emergency Response</h3>
+                        <p class="text-gray-300">Improve coordination for wildfires, search and rescue, disaster relief, and large-scale public safety incidents.</p>
+                    </div>
+                    <div class="card text-center">
+                        <img src="https://placehold.co/100x100/a855f7/ffffff?text=LE" alt="Law Enforcement Icon" class="mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-bold text-white mb-3">Law Enforcement</h3>
+                        <p class="text-gray-300">Enhance tactical awareness and communication for patrols, special operations, and incident command.</p>
+                    </div>
+                    <div class="card text-center">
+                        <img src="https://placehold.co/100x100/f97316/ffffff?text=MO" alt="Military Operations Icon" class="mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-bold text-white mb-3">Military Operations</h3>
+                        <p class="text-gray-300">Provide real-time blue force tracking, intelligence sharing, and command & control at the tactical edge.</p>
+                    </div>
+                    <div class="card text-center md:col-span-2 lg:col-span-1 lg:col-start-2">
+                        <img src="https://placehold.co/100x100/3b82f6/ffffff?text=BS" alt="Border Security Icon" class="mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-bold text-white mb-3">Border Security</h3>
+                        <p class="text-gray-300">Maintain persistent situational awareness across vast areas with integrated sensor data and team locations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <h2 class="section-title">Our Commitment to Innovation and Safety.</h2>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    CloudTAK is at the forefront of team awareness technology, dedicated to providing reliable, scalable, and secure solutions for those who protect and serve. Born from the U.S. Department of Defense's TAK initiative, CloudTAK leverages government-off-the-shelf development to deliver unparalleled capabilities without licensing costs for many government users. We are committed to continuous innovation, ensuring our users always have access to the most advanced tools for mission success.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6 text-center max-w-2xl">
+                <h2 class="section-title">Partner with CloudTAK.</h2>
+                <p class="text-lg text-gray-300 mb-10">
+                    Ready to transform your team's situational awareness? Contact us to learn more, schedule a demo, or discuss a customized deployment.
+                </p>
+                <form class="space-y-6 text-left">
+                    <div>
+                        <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border border-gray-700 rounded-lg w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border border-gray-700 rounded-lg w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700" placeholder="your.email@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="shadow appearance-none border border-gray-700 rounded-lg w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700" placeholder="Tell us about your needs..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-10 px-6">
+        <div class="container mx-auto text-center text-gray-400">
+            <div class="flex flex-wrap justify-center space-x-6 mb-6">
+                <a href="#capabilities" class="hover:text-white transition duration-200">Capabilities</a>
+                <a href="#technology" class="hover:text-white transition duration-200">Technology</a>
+                <a href="#applications" class="hover:text-white transition duration-200">Applications</a>
+                <a href="#about" class="hover:text-white transition duration-200">About</a>
+                <a href="#contact" class="hover:text-white transition duration-200">Contact</a>
+                <a href="#" class="hover:text-white transition duration-200">Privacy Policy</a>
+            </div>
+            <div class="flex justify-center space-x-4 mb-6">
+                <!-- Placeholder for social media icons -->
+                <a href="#" class="text-gray-400 hover:text-white transition duration-200">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.356-.012-.533A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012 10.77v.058a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.188 11.644 11.644 0 008.29 20.25z"></path></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-200">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10z" clip-rule="evenodd"></path></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-200">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.002 3.797.048 1.05.056 1.749.217 2.679.542.93.324 1.625.774 2.227 1.379.602.603 1.053 1.298 1.378 2.227.325.93.486 1.629.542 2.679.047 1.013.048 1.367.048 3.797s-.001 2.784-.048 3.797c-.056 1.05-.217 1.749-.542 2.679-.324.93-.774 1.625-1.379 2.227-.603.602-1.298 1.053-2.227 1.378-.93.325-1.629.486-2.679.542-1.013.047-1.367.048-3.797.048s-2.784-.001-3.797-.048c-1.05-.056-1.749-.217-2.679-.542-.93-.324-1.625-.774-2.227-1.379-.602-.603-1.053-1.298-1.378-2.227-.325-.93-.486-1.629-.542-2.679-.047-1.013-.048-1.367-.048-3.797s.001-2.784.048-3.797c.056-1.05.217-1.749.542-2.679.324-.93.774-1.625 1.379-2.227.603-.602 1.298-1.053 2.227-1.378.93-.325 1.629-.486 2.679-.542C9.516 2.001 9.86 2 12.315 2zm0 2.18a.717.717 0 100 1.434.717.717 0 000-1.434zM12 16a4 4 0 100-8 4 4 0 000 8zm0-2a2 2 0 110-4 2 2 0 010 4z" clip-rule="evenodd"></path></svg>
+                </a>
+            </div>
+            <p>&copy; 2025 CloudTAK. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside (optional, but good UX)
+        document.addEventListener('click', (event) => {
+            const isClickInside = mobileMenu.contains(event.target) || mobileMenuButton.contains(event.target);
+            if (!isClickInside && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
+
