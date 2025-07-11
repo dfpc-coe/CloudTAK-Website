@@ -32,7 +32,7 @@ plugins:
 
 # Navigation structure
 nav:
-  - Home: index.md
+  - Home: docs.md
 
 # Markdown extensions (optional, but enhances content)
 markdown_extensions:

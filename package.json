@@ -16,7 +16,7 @@
     "type": "module",
     "scripts": {
         "serve": "vite serve",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "vite build"
     },
     "devDependencies": {
         "vite": "^7.0.4"
