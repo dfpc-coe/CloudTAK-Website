@@ -47,6 +47,9 @@ jobs:
       - name: Build MKDocs
         run: mkdocs build --site-dir ../dist --config-file ./docs/mkdocs.yml
 
+      - name: Build FrontPage
+        run: npm run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
