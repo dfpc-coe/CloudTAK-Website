@@ -51,7 +51,7 @@ jobs:
         run: mkdocs build --site-dir ./dist --config-file ./docs/mkdocs.yml
 
       - name: Merge Builds
-        run: mv ./docs/dist/* ./dist/
+        run: cp --recursive ./docs/dist/* ./dist/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
