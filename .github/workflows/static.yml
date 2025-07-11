@@ -44,14 +44,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Build FrontPage
+        run: npm run build
+
       - name: Build MKDocs
         run: mkdocs build --site-dir ./dist --config-file ./docs/mkdocs.yml
 
       - name: Merge Builds
         run: mv ./docs/dist/* ./dist/
-
-      - name: Build FrontPage
-        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
