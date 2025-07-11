@@ -1,0 +1,153 @@
+/* docs/css/extra.css */
+
+/* Import Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Apply Inter font to body and headings */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d0d0d; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+}
+
+/* Ensure headings also use Inter and are prominent */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; /* Extra bold for prominence */
+    color: #ffffff; /* White color for headings */
+}
+
+/* Adjust main content background and text for dark theme */
+.md-main {
+    background-color: #1e2939; /* Slightly lighter dark for content area */
+    color: #e0e0e0;
+}
+
+/* Apply gradient text effect to specific elements if needed */
+/* Note: This might require overriding specific MkDocs elements or adding custom classes in Markdown */
+.gradient-text {
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Style for cards/blocks, similar to the website's .card */
+.md-typeset .admonition {
+    background-color: #1f2937; /* Equivalent to gray-800 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+    padding: 2rem; /* p-8 */
+    transition: box-shadow 0.3s ease-in-out;
+}
+.md-typeset .admonition:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* hover:shadow-xl */
+}
+
+/* Adjust code block background */
+.md-typeset pre > code {
+    background-color: #111827; /* Darker background for code blocks */
+    color: #e0e0e0;
+    border-radius: 0.5rem; /* rounded-lg */
+}
+
+/* Table styling for dark theme */
+.md-typeset table {
+    background-color: #1f2937; /* Dark background for tables */
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden; /* Ensures rounded corners apply to content */
+}
+
+.md-typeset table th,
+.md-typeset table td {
+    border: 1px solid #374151; /* Darker border */
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.md-typeset table th {
+    background-color: #374151; /* Header background */
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Link colors */
+.md-typeset a {
+    color: #6366f1; /* Indigo links */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+.md-typeset a:hover {
+    color: #a855f7; /* Purple on hover */
+}
+
+/* Adjust header/navbar background */
+.md-header {
+    background-color: #111827; /* bg-gray-900 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+}
+
+/* Footer styling */
+.md-footer {
+    background-color: #111827; /* bg-gray-900 */
+    color: #9ca3af; /* gray-400 */
+}
+.md-footer-nav__link {
+    color: #9ca3af;
+}
+.md-footer-nav__link:hover {
+    color: #ffffff;
+}
+
+/* Custom button styles (if you add buttons in Markdown using raw HTML) */
+.btn-primary {
+    background-color: #6366f1; /* indigo-600 */
+    color: #ffffff;
+    font-weight: 600; /* font-semibold */
+    padding: 0.75rem 1.5rem; /* py-3 px-6 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    transition: all 0.3s ease-in-out;
+    display: inline-block; /* For proper padding and sizing */
+    text-decoration: none; /* Remove underline */
+}
+.btn-primary:hover {
+    background-color: #4f46e5; /* indigo-700 */
+    transform: scale(1.05); /* hover:scale-105 */
+}
+
+.btn-secondary {
+    background-color: #374151; /* gray-700 */
+    color: #e0e0e0; /* gray-200 */
+    font-weight: 600; /* font-semibold */
+    padding: 0.75rem 1.5rem; /* py-3 px-6 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #4b5563; /* border border-gray-600 */
+    display: inline-block;
+    text-decoration: none;
+}
+.btn-secondary:hover {
+    background-color: #4b5563; /* gray-600 */
+    transform: scale(1.05); /* hover:scale-105 */
+}
+
+/* Custom scrollbar for a sleek look */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #222;
+}
+::-webkit-scrollbar-thumb {
+    background: #4a4a4a;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #5a5a5a;
+}
+
