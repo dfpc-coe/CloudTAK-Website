@@ -1,40 +1,47 @@
 site_name: CloudTAK Documentation
-site_url: https://cloudtak.io
+site_url: https://cloudtak.io/docs/
+repo_name: CloudTAK-Docs
+repo_url: https://github.com/dfpc-coe/CloudTAK-Docs
 site_description: Official documentation for CloudTAK
 
 theme:
   name: material
-  custom_dir: overrides # Point to your custom template directory
+  custom_dir: overrides
   palette:
-    # Set the dark mode by default
     scheme: slate
-    primary: indigo # Primary color for links, etc.
-    accent: purple # Accent color
+    primary: indigo
+    accent: purple
   font:
     text: Inter
-    code: Fira Code # A good monospace font for code blocks
+    code: Fira Code
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
     - search.suggest
     - search.highlight
     - content.tabs.link
     - content.code.annotate
     - content.code.copy
 
-# Extra CSS to apply custom styles
 extra_css:
   - extra.css
 
-# Plugins (optional, but recommended for search)
 plugins:
   - search
 
 # Navigation structure
 nav:
   - Home: docs.md
+  - Deploy:
+      - Home: deploy.md
+  - Develop:
+      - Home: develop.md
+  - User Guide:
+      - Home: user.md
 
-# Markdown extensions (optional, but enhances content)
 markdown_extensions:
   - admonition
   - pymdownx.details
