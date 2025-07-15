@@ -151,3 +151,60 @@ h1, h2, h3, h4, h5, h6 {
     background: #5a5a5a;
 }
 
+/* Search Results Styling */
+.md-search-result {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 50;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.md-search-result__meta {
+    padding: 0.75rem 1rem;
+    background-color: #1f2937;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom: 1px solid #374151;
+}
+
+.md-search-result__list {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    max-height: 24rem;
+    overflow-y: auto;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.md-search-result__item:last-child {
+    border-bottom: none;
+}
+
+.md-search-result__item a:hover .font-semibold {
+    color: #a855f7; /* Purple hover for titles */
+}
+
+/* Search Input Focus States */
+.md-search__input:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+}
+
+/* Search Form Container */
+.md-search__form {
+    position: relative;
+}
+
+/* Responsive search positioning */
+@media (min-width: 768px) {
+    .md-search-result {
+        right: auto;
+        left: auto;
+        width: 24rem;
+    }
+}
+

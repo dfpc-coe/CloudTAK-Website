@@ -8,12 +8,29 @@
         {#- CloudTAK Logo -#}
         <img src="https://cloudtak.io/cloudtak-text.svg" alt="CloudTAK Logo" class="h-7 rounded-full mr-3">
       </div>
-      {#- Desktop Navigation -#}
-      <div class="hidden md:flex space-x-8">
-        {% for nav_item in nav %}
-          <a href="{{ nav_item.url | url }}" class="text-gray-300 hover:text-white transition duration-200">{{ nav_item.title }}</a>
-        {% endfor %}
+      
+      {#- Search and Navigation Container -#}
+      <div class="flex items-center space-x-4">
+        {#- Search Box -#}
+        <div class="hidden md:block">
+          <form class="md-search__form" name="search">
+            <input type="text" class="md-search__input bg-gray-700 text-gray-200 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent placeholder-gray-400" 
+                   placeholder="Search documentation..." 
+                   aria-label="Search" 
+                   name="query" 
+                   id="search-input"
+                   data-md-component="search-query">
+          </form>
+        </div>
+        
+        {#- Desktop Navigation -#}
+        <div class="hidden md:flex space-x-8">
+          {% for nav_item in nav %}
+            <a href="{{ nav_item.url | url }}" class="text-gray-300 hover:text-white transition duration-200">{{ nav_item.title }}</a>
+          {% endfor %}
+        </div>
       </div>
+      
       {#- Mobile Menu Button -#}
       <div class="md:hidden">
         <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
@@ -23,13 +40,27 @@
         </button>
       </div>
     </nav>
+    
     {#- Mobile Menu (hidden by default, toggled by JS) -#}
     <div id="mobile-menu" class="md:hidden hidden bg-gray-900 mt-4 py-2 rounded-lg shadow-lg">
+      {#- Mobile Search -#}
+      <div class="px-4 py-2">
+        <input type="text" class="w-full bg-gray-700 text-gray-200 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent placeholder-gray-400" 
+               placeholder="Search documentation..." 
+               aria-label="Search" 
+               id="mobile-search-input">
+      </div>
       {% for nav_item in nav %}
         <a href="{{ nav_item.url | url }}" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">{{ nav_item.title }}</a>
       {% endfor %}
     </div>
   </header>
+  
+  {#- Search Results Container -#}
+  <div class="md-search-result" data-md-component="search-result">
+    <div class="md-search-result__meta bg-gray-800"></div>
+    <ol class="md-search-result__list bg-gray-800 border border-gray-700 rounded-lg mt-2 max-h-96 overflow-y-auto"></ol>
+  </div>
 {% endblock %}
 
 {#- Block for custom footer -#}
@@ -61,12 +92,15 @@
     </div>
   </footer>
 
-  {#- JavaScript for mobile menu toggle -#}
+  {#- JavaScript for mobile menu toggle and search functionality -#}
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
+      const searchInput = document.getElementById('search-input');
+      const mobileSearchInput = document.getElementById('mobile-search-input');
 
+      // Mobile menu functionality
       if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', () => {
           mobileMenu.classList.toggle('hidden');
@@ -87,6 +121,135 @@
           });
         });
       }
+
+      // Search functionality
+      function initializeSearch() {
+        // Wait for MkDocs search to be available
+        if (typeof window.__md_get === 'function') {
+          const searchWorker = window.__md_get("__search");
+          if (searchWorker) {
+            setupSearchHandler(searchInput, searchWorker);
+            setupSearchHandler(mobileSearchInput, searchWorker);
+          }
+        } else {
+          // Fallback: simple redirect to search page
+          setupFallbackSearch(searchInput);
+          setupFallbackSearch(mobileSearchInput);
+        }
+      }
+
+      function setupSearchHandler(input, searchWorker) {
+        if (!input) return;
+        
+        let searchTimeout;
+        input.addEventListener('input', function(e) {
+          clearTimeout(searchTimeout);
+          const query = e.target.value;
+          
+          if (query.length < 2) {
+            hideSearchResults();
+            return;
+          }
+          
+          searchTimeout = setTimeout(() => {
+            performSearch(query, searchWorker);
+          }, 300);
+        });
+
+        // Handle keyboard navigation
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            const firstResult = document.querySelector('.md-search-result__item a');
+            if (firstResult) {
+              firstResult.click();
+            }
+          }
+        });
+      }
+
+      function setupFallbackSearch(input) {
+        if (!input) return;
+        
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            const query = e.target.value;
+            if (query) {
+              // Simple search using browser find
+              window.find(query);
+            }
+          }
+        });
+      }
+
+      function performSearch(query, searchWorker) {
+        searchWorker.then(search => {
+          search(query).then(results => {
+            displaySearchResults(results);
+          });
+        });
+      }
+
+      function displaySearchResults(results) {
+        const resultContainer = document.querySelector('.md-search-result__list');
+        const metaContainer = document.querySelector('.md-search-result__meta');
+        
+        if (!resultContainer) return;
+
+        // Clear previous results
+        resultContainer.innerHTML = '';
+        
+        if (results.length === 0) {
+          metaContainer.textContent = 'No results found';
+          resultContainer.style.display = 'none';
+          return;
+        }
+
+        metaContainer.textContent = `${results.length} result${results.length !== 1 ? 's' : ''}`;
+        
+        results.slice(0, 10).forEach(result => {
+          const item = document.createElement('li');
+          item.className = 'md-search-result__item p-3 border-b border-gray-700 hover:bg-gray-700 transition-colors';
+          
+          const link = document.createElement('a');
+          link.href = result.location;
+          link.className = 'block text-gray-200 hover:text-white';
+          
+          const title = document.createElement('div');
+          title.className = 'font-semibold text-indigo-400 mb-1';
+          title.textContent = result.title;
+          
+          const text = document.createElement('div');
+          text.className = 'text-sm text-gray-300';
+          text.textContent = result.text.slice(0, 150) + '...';
+          
+          link.appendChild(title);
+          link.appendChild(text);
+          item.appendChild(link);
+          resultContainer.appendChild(item);
+        });
+        
+        resultContainer.style.display = 'block';
+        document.querySelector('.md-search-result').style.display = 'block';
+      }
+
+      function hideSearchResults() {
+        const resultContainer = document.querySelector('.md-search-result');
+        if (resultContainer) {
+          resultContainer.style.display = 'none';
+        }
+      }
+
+      // Initialize search when page loads
+      setTimeout(initializeSearch, 500);
+      
+      // Hide search results when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.md-search__form') && !e.target.closest('.md-search-result')) {
+          hideSearchResults();
+        }
+      });
     });
   </script>
 {% endblock %}

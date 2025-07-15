@@ -37,12 +37,39 @@
                     <img src="./public/cloudtak.svg" alt="CloudTAK" class="h-10 w-10 mr-3">
                 </a>
             </div>
-            <div class="hidden md:flex space-x-8 select-none">
+            <div class="hidden md:flex items-center space-x-8 select-none">
                 <a href="#capabilities" class="text-gray-300 hover:text-white transition duration-200">Capabilities</a>
                 <a href="#technology" class="text-gray-300 hover:text-white transition duration-200">Technology</a>
                 <a href="#applications" class="text-gray-300 hover:text-white transition duration-200">Applications</a>
                 <a href="#pricing" class="text-gray-300 hover:text-white transition duration-200">Pricing</a>
                 <a href="#contact" class="text-gray-300 hover:text-white transition duration-200">Contact</a>
+                
+                <!-- Search Component -->
+                <div class="relative">
+                    <div class="flex items-center">
+                        <input 
+                            type="text" 
+                            id="homepage-search" 
+                            placeholder="Search docs..." 
+                            class="bg-gray-700 text-gray-200 border border-gray-600 rounded-lg px-4 py-2 w-48 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent placeholder-gray-400 transition-all duration-200"
+                        >
+                        <button 
+                            id="search-button"
+                            class="ml-2 p-2 text-gray-300 hover:text-white transition duration-200"
+                            title="Search Documentation"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Search Results Dropdown -->
+                    <div id="search-results" class="absolute top-full left-0 right-0 mt-2 bg-gray-800 border border-gray-600 rounded-lg shadow-xl z-50 hidden max-h-96 overflow-y-auto">
+                        <div id="search-results-content"></div>
+                    </div>
+                </div>
+                
                 <a href="/docs/index.html" class="flex text-gray-300 hover:text-white transition duration-200">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-book"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6l0 13" /><path d="M12 6l0 13" /><path d="M21 6l0 13" /></svg>
                     <span class='ms-2'>Docs</span>
@@ -71,6 +98,15 @@
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-gray-900 mt-4 py-2 rounded-lg shadow-lg">
+            <!-- Mobile Search -->
+            <div class="px-4 py-2">
+                <input 
+                    type="text" 
+                    id="mobile-search" 
+                    placeholder="Search docs..." 
+                    class="w-full bg-gray-700 text-gray-200 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent placeholder-gray-400"
+                >
+            </div>
             <a href="#capabilities" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Capabilities</a>
             <a href="#technology" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Technology</a>
             <a href="#applications" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Applications</a>
@@ -464,6 +500,130 @@
             if (!isClickInside && !mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
             }
+        });
+
+        // Search functionality
+        const homepageSearch = document.getElementById('homepage-search');
+        const mobileSearch = document.getElementById('mobile-search');
+        const searchButton = document.getElementById('search-button');
+        const searchResults = document.getElementById('search-results');
+        const searchResultsContent = document.getElementById('search-results-content');
+
+        // Sample search data (in a real implementation, this would come from your docs)
+        const searchData = [
+            {
+                title: "Welcome to MkDocs",
+                url: "/docs/docs/",
+                content: "For full documentation visit mkdocs.org. MkDocs commands and project layout information."
+            },
+            {
+                title: "Commands",
+                url: "/docs/docs/#commands", 
+                content: "mkdocs new [dir-name] - Create a new project. mkdocs serve - Start the live-reloading docs server."
+            },
+            {
+                title: "Project Layout",
+                url: "/docs/docs/#project-layout",
+                content: "mkdocs.yml configuration file. docs/ directory with index.md homepage."
+            },
+            {
+                title: "CloudTAK Features",
+                url: "#capabilities",
+                content: "Real-time Situational Awareness, Secure Data Exchange, Cross-Platform Interoperability, Cloud-Native Architecture"
+            },
+            {
+                title: "Technology Stack", 
+                url: "#technology",
+                content: "Open Source, Build in ETL Engine TAK Data, Comprehensive ETL Plugin Toolkit"
+            }
+        ];
+
+        function performSearch(query) {
+            if (query.length < 2) {
+                hideSearchResults();
+                return;
+            }
+
+            const results = searchData.filter(item => 
+                item.title.toLowerCase().includes(query.toLowerCase()) ||
+                item.content.toLowerCase().includes(query.toLowerCase())
+            );
+
+            displaySearchResults(results, query);
+        }
+
+        function displaySearchResults(results, query) {
+            if (results.length === 0) {
+                searchResultsContent.innerHTML = `
+                    <div class="p-4 text-gray-400">
+                        No results found for "${query}"
+                        <div class="mt-2">
+                            <a href="/docs/docs/" class="text-indigo-400 hover:text-indigo-300">Browse all documentation →</a>
+                        </div>
+                    </div>
+                `;
+            } else {
+                searchResultsContent.innerHTML = results.map(result => `
+                    <a href="${result.url}" class="block p-4 hover:bg-gray-700 border-b border-gray-600 last:border-b-0 transition-colors">
+                        <div class="font-semibold text-indigo-400 mb-1">${result.title}</div>
+                        <div class="text-sm text-gray-300">${result.content.slice(0, 120)}...</div>
+                    </a>
+                `).join('');
+            }
+            
+            searchResults.classList.remove('hidden');
+        }
+
+        function hideSearchResults() {
+            searchResults.classList.add('hidden');
+        }
+
+        // Setup search event handlers
+        let searchTimeout;
+        
+        [homepageSearch, mobileSearch].forEach(input => {
+            if (input) {
+                input.addEventListener('input', (e) => {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        performSearch(e.target.value);
+                    }, 300);
+                });
+
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const query = e.target.value;
+                        if (query) {
+                            // Redirect to docs with search query
+                            window.location.href = `/docs/docs/?q=${encodeURIComponent(query)}`;
+                        }
+                    }
+                });
+            }
+        });
+
+        if (searchButton) {
+            searchButton.addEventListener('click', () => {
+                const query = homepageSearch.value;
+                if (query) {
+                    window.location.href = `/docs/docs/?q=${encodeURIComponent(query)}`;
+                }
+            });
+        }
+
+        // Hide search results when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#homepage-search') && 
+                !e.target.closest('#search-results') &&
+                !e.target.closest('#search-button')) {
+                hideSearchResults();
+            }
+        });
+
+        // Close search when mobile menu opens
+        mobileMenuButton.addEventListener('click', () => {
+            hideSearchResults();
         });
     </script>
 </body>
