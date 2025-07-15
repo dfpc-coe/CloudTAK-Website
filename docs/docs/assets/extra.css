@@ -1,0 +1,26 @@
+/* docs/css/extra.css */
+
+/* Import Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Apply Inter font to body and headings */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1e2939 !important; /* Dark background */
+    color: #e0e0e0 !important; /* Light text color */
+}
+
+/* Ensure headings also use Inter and are prominent */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; /* Extra bold for prominence */
+    color: #ffffff !important; /* White color for headings */
+}
+
+nav, header {
+    background-color: #101828 !important;
+}
+
+.md-content {
+    margin-top: 200px !important;
+}
