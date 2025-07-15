@@ -21,6 +21,6 @@ nav, header {
     background-color: #101828 !important;
 }
 
-.md-content {
-    margin-top: 200px !important;
+.md-header__topic {
+    display: none;
 }
