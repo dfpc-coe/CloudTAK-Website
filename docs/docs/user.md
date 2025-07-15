@@ -1,17 +1,36 @@
-# Welcome to MkDocs
+# CloudTAK User Guide
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## First Login
 
-## Commands
+## Settings
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Basemaps
 
-## Project layout
+## Your Features
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Draw Tools
+
+## Overlays
+
+## Notifications
+
+## Data Packages
+
+## Data Sync (Missions)
+
+## Channels
+
+## Videos
+
+## Chat
+
+## Routes
+
+## Your Files & Imports
+
+## Iconsets
+
+## Connections (Advanced)
+
+## Debugger (Advanced)
+
