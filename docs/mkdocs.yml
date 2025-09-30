@@ -15,6 +15,7 @@ theme:
     text: Inter
     code: Fira Code
   features:
+    - toc.integrate
     - header.autohide
     - navigation.tabs
     - navigation.sections
