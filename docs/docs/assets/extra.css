@@ -14,6 +14,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #ffffff !important;
 }
 
+.md-header__topic {
+    display: none !important;
+}
+
 nav, header {
     background-color: #101828 !important;
 }
