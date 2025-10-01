@@ -7,7 +7,7 @@ site_description: Official documentation for CloudTAK
 theme:
   name: material
   logo: ./assets/cloudtak-text.svg
-  favicon: ./assets/cloudtak.ico
+  favicon: ./assets/favicon-96x96.png
   palette:
     scheme: slate
     primary: indigo
