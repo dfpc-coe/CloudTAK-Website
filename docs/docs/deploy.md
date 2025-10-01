@@ -104,7 +104,7 @@ Note: commands below assume Ubuntu
     docker compose build media
     ```
 
-4. Restart the Docker Containers
+4. Restart the Docker Containers with the latest images
 
     ```
     docker compose up -d
