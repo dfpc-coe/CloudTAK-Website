@@ -26,53 +26,66 @@ Note: commands below assume Ubuntu
     lsb_release -a
     ```
 
-2. Install Docker and Docker Compose
-
-    Follow the [Docker Provided instructions](https://docs.docker.com/engine/install/ubuntu/)
-
-3. Install Git, Curl and Caddy
-
-    ```
-    sudo apt update
-    sudo apt install -y git curl caddy
-    ```
-
-4. Navigate to the desired install directory, in this guide we will assume the Home directory of the user.
+2. Navigate to the desired install directory, in this guide we will assume the Home directory of the user.
     While CloudTAK can be installed using `root`, it is not recommended for security reasons and a non-root user should be used.
 
     ```
     cd ~/
     ```
 
-5. Clone the CloudTAK Repository
+3. Clone the CloudTAK Repository
 
     ```
     git clone https://github.com/dfpc-coe/CloudTAK.git
     ```
 
-6. Navigate to the Docker Compose directory
+4. Navigate into the new git Directory created in the last step
 
     ```
     cd CloudTAK
     ```
 
-7. Update Env Vars within the provided Env File, using the .env file
+5. Install necessary system dependencies
 
     ```
-    mv example.env .env
+    ./cloudtak.sh install
     ```
 
-8. Build the Docker Containers
+6. Edit the Environment Variable file:
 
     ```
-    docker compose build
+    nano .env
     ```
 
-9. Start the Docker Containers
+> [!WARNING]
+> Set `SigningSecret` and `MediaSecret` to secure values. These should be long, random strings.
+> Leaving these values with the defaults can allow an attacker to gain access to your system.
+> And generate valid authentication tokens without a user account.
 
-    ```
-    docker compose up -d
-    ```
+    - Set `API_URL=https://map.<yourdomain>` IE: `https://map.cotak.gov`
+    - Set `PMTILES_URL=https://tiles.map.<yourdomain>` IE: `https://tiles.map.cotak.gov`
+
+The remaining Env Vars can be updated for an advanced deployment but the defaults will work for most.
+
+7. Update your DNS configuration to create `A` records pointing to your CloudTAK Server's IP Address:
+
+    - `A map.<yourdomain> => <CloudTAK Server IP>`
+    - `A tiles.map.<yourdomain> => <CloudTAK Server IP>`
+
+8. Start the Docker Containers
+
+```
+./cloudtak.sh start
+```
+
+9. Subsequent CloudTAK Updates can be performed with:
+
+```
+./cloudtak.sh update
+```
+
+The script will prompt to perform a Database Backup before proceeding with the update.
+We highly recommend performing a backup while updating.
 
 ### Updating CloudTAK or Docker Compose Configuration
 
