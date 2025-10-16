@@ -88,7 +88,7 @@ The remaining Env Vars can be updated for an advanced deployment but the default
 The script will prompt to perform a Database Backup before proceeding with the update.
 We highly recommend performing a backup while updating.
 
-### Updating CloudTAK or Docker Compose Configuration
+### Updating CloudTAK
 
 1. Navigate to the CloudTAK directory
 
@@ -96,32 +96,12 @@ We highly recommend performing a backup while updating.
     cd CloudTAK
     ```
 
-2. Ensure you are on the desired branch, for production ready releases, use the `main` branch
+2. Run the provided CloudTAK Update Script
 
     ```
-    git branch # Print the current branch
-    git checkout main # Switch to the main branch if not already on it
+    ./cloudtak.sh update
     ```
 
-2. Pull the latest changes from the repository
-
-    ```
-    git pull
-    ```
-
-3. Rebuild the Docker Containers
-
-    ```
-    docker compose build api --no-cache
-    docker compose build events
-    docker compose build tiles
-    docker compose build media
-    ```
-
-4. Restart the Docker Containers with the latest images
-
-    ```
-    docker compose up -d
-    ```
+    It will prompt you to perform a database backup before proceeding with the update, we recommend you always do so.
 
 ## AWS Deployment
