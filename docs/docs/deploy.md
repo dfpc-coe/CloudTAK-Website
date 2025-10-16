@@ -57,10 +57,11 @@ Note: commands below assume Ubuntu
     nano .env
     ```
 
-> [!WARNING]
-> Set `SigningSecret` and `MediaSecret` to secure values. These should be long, random strings.
-> Leaving these values with the defaults can allow an attacker to gain access to your system.
-> And generate valid authentication tokens without a user account.
+???+ warning
+
+    Set `SigningSecret` and `MediaSecret` to secure values. These should be long, random strings.
+    Leaving these values with the defaults can allow an attacker to gain access to your system.
+    And generate valid authentication tokens without a user account.
 
     - Set `API_URL=https://map.<yourdomain>` IE: `https://map.cotak.gov`
     - Set `PMTILES_URL=https://tiles.map.<yourdomain>` IE: `https://tiles.map.cotak.gov`
