@@ -39,19 +39,25 @@ Note: commands below assume Ubuntu
     git clone https://github.com/dfpc-coe/CloudTAK.git
     ```
 
-4. Navigate into the new git Directory created in the last step
+4. Clone the CloudTAK Repository
+
+    ```
+    git clone https://github.com/dfpc-coe/CloudTAK.git
+    ```
+
+5. Navigate into the new git Directory created in the last step
 
     ```
     cd CloudTAK
     ```
 
-5. Install necessary system dependencies
+6. Install necessary system dependencies
 
     ```
     ./cloudtak.sh install
     ```
 
-6. Edit the Environment Variable file:
+7. Edit the Environment Variable file:
 
     ```
     nano .env
@@ -68,25 +74,16 @@ Note: commands below assume Ubuntu
 
 The remaining Env Vars can be updated for an advanced deployment but the defaults will work for most.
 
-7. Update your DNS configuration to create `A` records pointing to your CloudTAK Server's IP Address:
+8. Update your DNS configuration to create `A` records pointing to your CloudTAK Server's IP Address:
 
     - `A map.<yourdomain> => <CloudTAK Server IP>`
     - `A tiles.map.<yourdomain> => <CloudTAK Server IP>`
 
-8. Start the Docker Containers
+9. Start the Docker Containers
 
 ```
 ./cloudtak.sh start
 ```
-
-9. Subsequent CloudTAK Updates can be performed with:
-
-```
-./cloudtak.sh update
-```
-
-The script will prompt to perform a Database Backup before proceeding with the update.
-We highly recommend performing a backup while updating.
 
 ### Updating CloudTAK
 
