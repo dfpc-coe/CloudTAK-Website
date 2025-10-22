@@ -69,8 +69,13 @@ Note: commands below assume Ubuntu
     Leaving these values with the defaults can allow an attacker to gain access to your system
     and generate valid authentication tokens without a user account.
 
-    - Set `API_URL=https://map.<yourdomain>` IE: `https://map.cotak.gov`
-    - Set `PMTILES_URL=https://tiles.map.<yourdomain>` IE: `https://tiles.map.cotak.gov`
+- Set `API_URL=https://map.<yourdomain>`
+
+For Example: `API_URL=https://map.cotak.gov`
+
+- Set `PMTILES_URL=https://tiles.map.<yourdomain>`
+
+For Example: `PMTILES_URL=https://tiles.map.cotak.gov`
 
 The remaining Env Vars can be updated for an advanced deployment but the defaults will work for most.
 
