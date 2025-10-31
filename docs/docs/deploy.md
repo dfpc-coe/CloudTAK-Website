@@ -39,25 +39,19 @@ Note: commands below assume Ubuntu
     git clone https://github.com/dfpc-coe/CloudTAK.git
     ```
 
-4. Clone the CloudTAK Repository
-
-    ```
-    git clone https://github.com/dfpc-coe/CloudTAK.git
-    ```
-
-5. Navigate into the new git Directory created in the last step
+4. Navigate into the new git Directory created in the last step
 
     ```
     cd CloudTAK
     ```
 
-6. Install necessary system dependencies
+5. Install necessary system dependencies
 
     ```
     ./cloudtak.sh install
     ```
 
-7. Edit the Environment Variable file:
+6. Edit the Environment Variable file:
 
     ```
     nano .env
@@ -65,9 +59,10 @@ Note: commands below assume Ubuntu
 
 ???+ warning
 
-    Set `SigningSecret` and `MediaSecret` to secure values. These should be long, random strings.
-    Leaving these values with the defaults can allow an attacker to gain access to your system
-    and generate valid authentication tokens without a user account.
+    If you are using the `cloudtak.sh` install script, then the `SigningSecret` & `MediaSecret`
+    will be randomly generated for you. If you are not using the install script, you must
+    set these values to be long, random strings. Leaving these values with the defaults can allow
+    an attacker to gain access to your system and generate valid authentication tokens without a user account.
 
 - Set `API_URL=https://map.<yourdomain>`
 
@@ -79,12 +74,12 @@ For Example: `PMTILES_URL=https://tiles.map.cotak.gov`
 
 The remaining Env Vars can be updated for an advanced deployment but the defaults will work for most.
 
-8. Update your DNS configuration to create `A` records pointing to your CloudTAK Server's IP Address:
+7. Update your DNS configuration to create `A` records pointing to your CloudTAK Server's IP Address:
 
     - `A map.<yourdomain> => <CloudTAK Server IP>`
     - `A tiles.map.<yourdomain> => <CloudTAK Server IP>`
 
-9. Start the Docker Containers
+8. Start the Docker Containers
 
 ```
 ./cloudtak.sh start
