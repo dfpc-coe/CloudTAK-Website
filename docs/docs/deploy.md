@@ -101,6 +101,23 @@ The remaining Env Vars can be updated for an advanced deployment but the default
 
     It will prompt you to perform a database backup before proceeding with the update, we recommend you always do so.
 
+## DNS Configuration
+
+Final DNS Configuration should have the following entries:
+
+| Record Type | Hostname               | Points To                | Example                    |
+| ----------- | ---------------------- | ------------------------ | -------------------------- |
+| A           | <sub>.example.com      | CloudTAK API & Web UI    | map.example.com            |
+| A           | <sub>.example.com      | CloudTAK Media Server    | video.example.com          |
+| A           | tiles.<sub>.example.com| CloudTAK Tile Server     | tiles.map.example.com      |
+
+Note that the relationship between subdomains in the tree is important as CloudTAK will automatically generate
+Content Security Policy (CSP) headers that allow the API & Web UI to access the Media and Tile servers.
+
+The following rules must be adhered to unless customizing the nginx configuration files directly:
+- The API & Web UI must be on the same level subdomain (e.g. `map.example.com` & `video.example.com`)
+- The Tile server must be on a subdomain of the API & Web UI (e.g. `tiles.map.example.com`) AND must be named `tiles`
+
 ## AWS Deployment
 
 ## S3 Bucket Configuration
@@ -115,7 +132,6 @@ The following key prefixes will be used within the S3 Bucket:
 | Prefix                            | Management    | Description |
 | --------------------------------- | ------------- | ----------- |
 | `attachment/{sha256}/{file.ext}`  | Automated     | CoT Attachments by Data Package reported SHA |
-| `data/{data sync id}/{file.ext}`  | Automated     | Data Sync file contents |
 | `import/{UUID}/{file.ext}`        | Automated     | Initial User File Uploads |
 | `profile/{email}/{file.ext}`      | Automated     | User Files & Cloud Optimized outputs from Import process |
 | `public/{name}.pmtiles`           | User Provided | Public Tile Pyramids |
