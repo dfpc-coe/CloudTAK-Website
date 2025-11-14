@@ -59,7 +59,7 @@ Note: commands below assume Ubuntu
 
 ???+ warning
 
-    If you are using the `cloudtak.sh` install script, then the `SigningSecret` & `MediaSecret`
+    If you are using the `cloudtak.sh` install script, then the `SigningSecret`
     will be randomly generated for you. If you are not using the install script, you must
     set these values to be long, random strings. Leaving these values with the defaults can allow
     an attacker to gain access to your system and generate valid authentication tokens without a user account.
