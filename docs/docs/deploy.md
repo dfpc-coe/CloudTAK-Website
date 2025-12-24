@@ -192,6 +192,8 @@ git clone git@github.com:dfpc-coe/CloudTAK
 cd CloudTAK
 npm install
 
+$(deploy env --profile <profile> --region <region>)
+Environment='<stack-name>' node bin/build.js
 deploy create <stack-name> --profile <profile> --region <region>
 
 ```
