@@ -120,6 +120,84 @@ The following rules must be adhered to unless customizing the nginx configuratio
 
 ## AWS Deployment
 
+### Initial Install & Setup
+
+The following instructions will guide you through deploying CloudTAK using AWS CloudFormation
+
+
+1.  Ensure you have NodeJS installed locally. The install instructions assume an Ubuntu Command line, Windows
+Subsystem for Linux (WSL) is recommended for Windows users.
+
+```
+# Install NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+nvm install 24
+```
+
+2. Ensure the AWS CLI is installed and a new profile is configured in your `~/.aws/credentials` file.
+
+```
+# Install AWS CLI
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws configure --profile <name>
+```
+
+3. Install the CloudTAK Deploy Tooling
+
+```
+npm install -g @openaddresses/deploy
+```
+
+4. Configure your AWS CLI with an IAM User that has permissions to create CloudFormation stacks
+
+Note: Ensure the `profile` used in the next step matches the profile name you set in the AWS CLI configuration
+
+```
+deploy init
+```
+
+6. Create a new folder to hold CloudTAK specific configuration
+
+```
+mkdir -p ~/Development/dfpc-coe
+cd ~/Development/dfpc-coe
+```
+
+5. Install the VPC Infrastructure
+
+Note: You must have an active Route53 Hosted Zone for the domain you plan to use with CloudTAK
+
+The VPC stack will provision necessary networking components including VPCs, Subnets, Security Groups, NAT Gateways,
+in addition to Amazon Certificate Manager (ACM) certificates for use with CloudTAK. As part of this process, a DNS
+valdation check will be performed.
+
+```
+git clone git@github.com:dfpc-coe/vpc
+cd vpc
+npm install
+
+deploy create <stack-name> --profile <profile> --region <region>
+```
+
+6. Install the CloudTAK Infrastructure
+
+Note: The stack name must match the stack name used in the VPC deployment step.
+Each stack will be prefixed by the name of the git repository.
+
+```
+cd ~/Development/dfpc-coe
+git clone git@github.com:dfpc-coe/CloudTAK
+cd CloudTAK
+npm install
+
+deploy create <stack-name> --profile <profile> --region <region>
+
+```
+
+7. Navigate to `https://map.<yourdomain>` to access the CloudTAK Web UI
+
 ## S3 Bucket Configuration
 
 CloudTAK will use a single S3 compatible store for storing assests including map tiles, user uploaded files, and other static content.
