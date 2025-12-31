@@ -20,10 +20,9 @@
 
 Data Sync allow synchronization of data between multiple devices. Data Sync allow a team member to generate data and as field members go in and out of connectivity, their data will be synchronized with the team.
 
-
 ## Channels
 
-## Videos
+## Videos ![](assets/2025-12-31-10-54-43-image.png) garbage text
 
 ## Chat
 
@@ -36,4 +35,3 @@ Data Sync allow synchronization of data between multiple devices. Data Sync allo
 ## Connections (Advanced)
 
 ## Debugger (Advanced)
-
