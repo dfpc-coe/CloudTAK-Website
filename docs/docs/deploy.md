@@ -20,38 +20,45 @@ The following are pre-requisites for a Docker Compose deployment:
 
 Note: commands below assume Ubuntu
 
-1. Ensure Ubuntu Version is 24.04 or greater
+1. Before you start the install, ensure you have the following DNS records created for your domain.
+
+    | Record Type | Hostname               | Points To                | Example                    |
+    | ----------- | ---------------------- | ------------------------ | -------------------------- |
+    | A           | map.<yourdomain>       | CloudTAK API & Web UI    | map.cotak.gov              |
+    | A           | tiles.map.<yourdomain> | CloudTAK Tile Server     | tiles.map.cotak.gov        |
+
+2. Ensure Ubuntu Version is 24.04 or greater
 
     ```
     lsb_release -a
     ```
 
-2. Navigate to the desired install directory, in this guide we will assume the Home directory of the user.
+3. Navigate to the desired install directory, in this guide we will assume the Home directory of the user.
     While CloudTAK can be installed using `root`, it is not recommended for security reasons and a non-root user should be used.
 
     ```
     cd ~/
     ```
 
-3. Clone the CloudTAK Repository
+4. Clone the CloudTAK Repository
 
     ```
     git clone https://github.com/dfpc-coe/CloudTAK.git
     ```
 
-4. Navigate into the new git Directory created in the last step
+5. Navigate into the new git Directory created in the last step
 
     ```
     cd CloudTAK
     ```
 
-5. Install necessary system dependencies
+6. Install necessary system dependencies
 
     ```
     ./cloudtak.sh install
     ```
 
-6. Edit the Environment Variable file:
+7. Edit the Environment Variable file:
 
     ```
     nano .env
@@ -64,20 +71,6 @@ Note: commands below assume Ubuntu
     set these values to be long, random strings. Leaving these values with the defaults can allow
     an attacker to gain access to your system and generate valid authentication tokens without a user account.
 
-- Set `API_URL=https://map.<yourdomain>`
-
-For Example: `API_URL=https://map.cotak.gov`
-
-- Set `PMTILES_URL=https://tiles.map.<yourdomain>`
-
-For Example: `PMTILES_URL=https://tiles.map.cotak.gov`
-
-The remaining Env Vars can be updated for an advanced deployment but the defaults will work for most.
-
-7. Update your DNS configuration to create `A` records pointing to your CloudTAK Server's IP Address:
-
-    - `A map.<yourdomain> => <CloudTAK Server IP>`
-    - `A tiles.map.<yourdomain> => <CloudTAK Server IP>`
 
 8. Start the Docker Containers
 
