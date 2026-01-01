@@ -22,6 +22,14 @@ CloudTAK can be deployed in one of three supported configurations:
 
 The Develop section provides everything developers need to build custom integrations and extend CloudTAK's functionality.
 
+### 📚 [Administration Guide](/admin)
+
+The admin guide section is tailored for system administrators to manage and maintain CloudTAK deployments.
+
+---
+
+*Ready to get started? Choose one of the sections above based on your role and objectives.*
+
 ### 📚 [User Guide](/user)
 
 The User guide section is designed for end-users and operators to learn how to effectively use CloudTAK's features.
