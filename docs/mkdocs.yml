@@ -45,6 +45,8 @@ nav:
       - Home: deploy.md
   - Develop:
       - Home: develop.md
+  - Admin Guide:
+      - Home: admin.md
   - User Guide:
       - Home: user.md
 
