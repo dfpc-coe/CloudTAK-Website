@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the CloudTAK Server Administration Guide. This document provides comprehensive instructions for installing, configuring, and managing the CloudTAK server.
+Welcome to the CloudTAK Server Administration Guide. This document provides comprehensive instructions for configuring, and managing the CloudTAK server.
 Whether you are a system administrator or a technical user, this guide will help you ensure that your CloudTAK server is running smoothly and efficiently.
 
 ## Admin Panel
@@ -19,7 +19,7 @@ Once you enter the Admin Panel, you will get a screen like the following:
 
 ## CloudTAK Settings
 
-The CloudTAK Settings section of the Admin Panel allows you to configure the default behavior of the CloudTAK server instance. 
+The CloudTAK Settings section of the Admin Panel allows you to configure the default behavior of the CloudTAK server instance.
 
 From the Admin Page, select the CloudTAK Settings Menu Item on the left:
 
@@ -37,4 +37,4 @@ Add any or all of the options you wish to customize and then select "Save Settin
 
 ![](assets/2025-12-31-17-22-36-image.png)
 
-
+## Connections & Data/ETL Integrations
