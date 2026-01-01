@@ -15,7 +15,7 @@ The admin panel can be accessed once logged in to the CloudTAK Map View.
 
 Once you enter the Admin Panel, you will get a screen like the following:
 
-<img src="assets/2025-12-31-17-16-08-image.png" title="" alt="" data-align="left">
+![](assets/2025-12-31-17-16-08-image.png)
 
 ## CloudTAK Settings
 
@@ -23,7 +23,7 @@ The CloudTAK Settings section of the Admin Panel allows you to configure the def
 
 From the Admin Page, select the CloudTAK Settings Menu Item on the left:
 
-<img title="" src="assets/2025-12-31-17-17-34-image.png" alt="" data-align="center">
+![](assets/2025-12-31-17-17-34-image.png)
 
 ### Server Branding
 
@@ -31,7 +31,7 @@ CloudTAK can be configured to use a custom logo and naming scheme to more easily
 
 To configure, select the "Login Page" option and then the Pencil icon in the upper right-hand corner to edit.
 
-<img src="assets/2025-12-31-17-21-47-image.png" title="" alt="" data-align="left">
+![](assets/2025-12-31-17-21-47-image.png)
 
 Add any or all of the options you wish to customize and then select "Save Setting" in the bottom right.
 
