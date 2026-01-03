@@ -47,6 +47,8 @@ nav:
       - Home: develop.md
   - Admin Guide:
       - Home: admin.md
+  - Integration Guide:
+      - Home: etl.md
   - User Guide:
       - Home: user.md
 
