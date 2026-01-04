@@ -1,6 +1,6 @@
-<h1 align='center'>CloudTAK Documentation</h1>
+<h1 align='center'><a href='https://cloudtak.io'>CloudTAK Website</a></h1>
 
-<p align='center'>Documentation for the <a href="https://github.com/dfpc-coe/CloudTAK">CloudTAK</a> Product Suite</p>
+<p align='center'>Landing Page for the <a href="https://github.com/dfpc-coe/CloudTAK">CloudTAK</a> Product Suite</p>
 
 ### Homepage
 
@@ -16,14 +16,4 @@ npm install
 
 ```sh
 npm run serve
-```
-
-### Documentation
-
-The documetatation is powered by MKDocs and is generated from the Markdown files in the `docs` directory.
-
-To build locally run:
-
-```
-mkdocs serve
 ```
