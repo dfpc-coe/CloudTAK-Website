@@ -31,27 +31,13 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
-
-      - name: Install MKDocs
-        run: pip install mkdocs mkdocs-material
+          node-version: '24'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build FrontPage
         run: npm run build
-
-      - name: Build MKDocs
-        run: mkdocs build --site-dir ./dist --config-file ./docs/mkdocs.yml
-
-      - name: Merge Builds
-        run: cp --recursive ./docs/dist/* ./dist/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
