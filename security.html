@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CloudTAK - Responsible Disclosure Program">
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <title>CloudTAK - Security</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header -->
+    <header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12 fixed w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center select-none">
+                <a href="/" class="flex text-gray-300 hover:text-white transition duration-200">
+                    <img src="./public/dfpc.svg" alt="Department of Fire Prevention and Control Logo" class="h-10 w-10 mr-3">
+                    <img src="./public/coelogo.svg" alt="Center of Excellence Logo" class="h-10 w-10 mr-3">
+                    <img src="./public/cloudtak.svg" alt="CloudTAK" class="h-10 w-10 mr-3">
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8 select-none">
+                <a href="/#capabilities" class="text-gray-300 hover:text-white transition duration-200">Capabilities</a>
+                <a href="/#technology" class="text-gray-300 hover:text-white transition duration-200">Technology</a>
+                <a href="/#applications" class="text-gray-300 hover:text-white transition duration-200">Applications</a>
+                <a href="/#pricing" class="text-gray-300 hover:text-white transition duration-200">Pricing</a>
+                <a href="/#contact" class="text-gray-300 hover:text-white transition duration-200">Contact</a>
+                <a href="https://docs.cloudtak.io/docs/index.html" class="flex text-gray-300 hover:text-white transition duration-200">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-book"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6l0 13" /><path d="M12 6l0 13" /><path d="M21 6l0 13" /></svg>
+                    <span class='ms-2'>Docs</span>
+                </a>
+                <a
+                    href='https://github.com/dfpc-coe/CloudTAK'
+                    title='Open In Github'
+                    class="text-gray-300 hover:text-white transition duration-200"
+                >
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+                </a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button
+                    id="mobile-menu-button"
+                    alt="Toggle Mobile Menu"
+                    class="text-gray-300 hover:text-white focus:outline-none"
+                >
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-900 mt-4 py-2 rounded-lg shadow-lg">
+            <a href="/#capabilities" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Capabilities</a>
+            <a href="/#technology" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Technology</a>
+            <a href="/#applications" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Applications</a>
+            <a href="/#pricing" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Pricing</a>
+            <a href="/#contact" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Contact</a>
+            <a href="https://docs.cloudtak.io/docs/index.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Docs</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Security Disclosure Content -->
+        <section class="pt-32 pb-20 bg-gray-900 min-h-screen">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                    <span class="gradient-text">Responsible Disclosure Program Matrix</span>
+                </h1>
+                <p class="text-gray-400 mb-12">
+                    Last updated: June 3, 2026
+                </p>
+
+                <!-- Intro blurb -->
+                <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 mb-12">
+                    <p class="text-gray-300 leading-relaxed">
+                        We deeply appreciate the efforts of independent security researchers in helping us keep our systems and users safe. This document outlines our vulnerability reward matrix, detailing the severity levels, examples of qualifying exploits, and the corresponding payout tiers. <strong class="text-white">The maximum reward for a single vulnerability submission is $1,000 USD.</strong>
+                    </p>
+                </div>
+
+                <!-- Severity Matrix Table -->
+                <div class="border-t border-gray-700 pt-10 mb-12">
+                    <h2 class="text-2xl font-bold text-white mb-6">Vulnerability Reward Matrix</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="py-3 px-4 text-white font-semibold">Severity</th>
+                                    <th class="py-3 px-4 text-white font-semibold">Payout (USD)</th>
+                                    <th class="py-3 px-4 text-white font-semibold">Description & Examples</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-300">
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-4 px-4 font-semibold text-white">Critical</td>
+                                    <td class="py-4 px-4"><strong class="text-white">$800 - $1,000</strong></td>
+                                    <td class="py-4 px-4 leading-relaxed">Vulnerabilities that cause a privilege escalation from unprivileged to admin, allow for Remote Code Execution (RCE), result in full system compromise, or enable SQL injection exposing sensitive Personally Identifiable Information (PII) or financial data.</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-4 px-4 font-semibold text-white">High</td>
+                                    <td class="py-4 px-4"><strong class="text-white">$300 - $799</strong></td>
+                                    <td class="py-4 px-4 leading-relaxed">Significant vulnerabilities that compromise data or bypass security controls. Examples include Stored Cross-Site Scripting (XSS), bypassing authentication/authorization for non-admin accounts, demonstrable Server-Side Request Forgery (SSRF), or exposure of non-public user data.</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-4 px-4 font-semibold text-white">Medium</td>
+                                    <td class="py-4 px-4"><strong class="text-white">$100 - $299</strong></td>
+                                    <td class="py-4 px-4 leading-relaxed">Exploits that require user interaction or specific configurations to execute. Examples include Reflected Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF) on sensitive actions, Subdomain Takeover, or misconfigurations leading to limited data exposure.</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-4 px-4 font-semibold text-white">Low</td>
+                                    <td class="py-4 px-4"><strong class="text-white">$25 - $99</strong></td>
+                                    <td class="py-4 px-4 leading-relaxed">Issues that pose a minor security risk or require extremely unlikely circumstances to exploit. Examples include Open Redirects, minor misconfigurations, or informational disclosures (e.g., detailed server version banners, internal IP addresses).</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-4 font-semibold text-white">Info</td>
+                                    <td class="py-4 px-4"><strong class="text-white">$0 (Swag / Hall of Fame)</strong></td>
+                                    <td class="py-4 px-4 leading-relaxed">Non-exploitable bugs that present a theoretical security risk, best-practice suggestions, SSL/TLS configuration issues, or issues explicitly listed as out-of-scope.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Rules and Conditions -->
+                <div class="border-t border-gray-700 pt-10">
+                    <h2 class="text-2xl font-bold text-white mb-6">General Program Rules & Conditions</h2>
+                    <ul class="text-gray-300 leading-relaxed space-y-4 list-none">
+                        <li class="flex gap-3">
+                            <span class="shrink-0 w-2 h-2 rounded-full bg-indigo-500 self-start mt-2"></span>
+                            <span><strong class="text-white">Assessment:</strong> Payouts are determined at the sole discretion of our security team based on the true impact, exploitability, and complexity of the reported vulnerability.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="shrink-0 w-2 h-2 rounded-full bg-indigo-500 self-start mt-2"></span>
+                            <span><strong class="text-white">First to Report:</strong> To qualify for a reward, you must be the first researcher to report the specific vulnerability. Duplicate reports will not be rewarded.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="shrink-0 w-2 h-2 rounded-full bg-indigo-500 self-start mt-2"></span>
+                            <span><strong class="text-white">Confidentiality:</strong> Vulnerabilities must be reported securely and confidentially. Public disclosure before remediation will disqualify you from receiving a bounty.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="shrink-0 w-2 h-2 rounded-full bg-indigo-500 self-start mt-2"></span>
+                            <span><strong class="text-white">Prohibited Actions:</strong> Social engineering (including phishing), physical attacks against our employees or infrastructure, and automated scanning using disruptive tools are strictly prohibited and ineligible for rewards.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="shrink-0 w-2 h-2 rounded-full bg-indigo-500 self-start mt-2"></span>
+                            <span><strong class="text-white">Out of Scope:</strong> Denial of Service (DoS/DDoS) attacks, brute-force attacks, and spam are strictly out of scope.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-10 px-6 border-t border-gray-800">
+        <div class="container mx-auto text-center text-gray-400">
+            <div class="flex flex-wrap justify-center space-x-6 mb-6">
+                <a href="/#capabilities" class="hover:text-white transition duration-200">Capabilities</a>
+                <a href="/#technology" class="hover:text-white transition duration-200">Technology</a>
+                <a href="/#applications" class="hover:text-white transition duration-200">Applications</a>
+                <a href="/#pricing" class="hover:text-white transition duration-200">About</a>
+                <a href="/#contact" class="hover:text-white transition duration-200">Contact</a>
+                <a href="https://docs.cloudtak.io/docs/index.html" class="hover:text-white transition duration-200">Documentation</a>
+            </div>
+            <div class="flex justify-center space-x-4 mb-6">
+                <a href="https://www.facebook.com/COEATAF/" class="text-gray-400 hover:text-white transition duration-200">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                </a>
+                <a href="https://www.instagram.com/cofiretech?igsh=MXB3a2hqdTQ4bW1xMQ==" class="text-gray-400 hover:text-white transition duration-200">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                </a>
+                <a href="https://www.linkedin.com/company/cofiretech/" class="text-gray-400 hover:text-white transition duration-200">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg>
+                </a>
+                <a href="http://www.youtube.com/@coetak" class="text-gray-400 hover:text-white transition duration-200">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" /></svg>
+                </a>
+            </div>
+            <p>&copy; 2026 State of Colorado. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (event) => {
+            const isClickInside = mobileMenu.contains(event.target) || mobileMenuButton.contains(event.target);
+            if (!isClickInside && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
