@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CloudTAK - Cloud Native Open Source Situational Awareness For TAK">
+    <meta name="description" content="CloudTAK is an open source TAK client that runs in the browser and brings outside data feeds into a TAK Server.">
 
-    <link rel="icon" type="image/png" href="/api/webmanifest/favicon" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/api/webmanifest/favicon?size=192" sizes="192x192" />
-    <link rel="apple-touch-icon" href="/api/webmanifest/favicon?size=180" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <title>CloudTAK</title>
@@ -37,25 +37,26 @@
         <nav class="container mx-auto flex justify-between items-center">
             <div class="flex items-center select-none">
                 <a href="#home" class="flex text-gray-300 hover:text-white transition duration-200">
-                    <img src="./public/dfpc.svg" alt="Department of Fire Prevention and Control Logo" class="h-10 w-10 mr-3">
-                    <img src="./public/coelogo.svg" alt="Center of Excellence Logo" class="h-10 w-10 mr-3">
-                    <img src="./public/cloudtak.svg" alt="CloudTAK" class="h-10 w-10 mr-3">
+                    <img src="/dfpc.svg" alt="Colorado Division of Fire Prevention and Control" class="h-10 w-10 mr-3">
+                    <img src="/coelogo.svg" alt="Center of Excellence for Advanced Technology Aerial Firefighting" class="h-10 w-10 mr-3">
+                    <img src="/cloudtak.svg" alt="CloudTAK" class="h-10 w-10 mr-3">
                 </a>
             </div>
             <div class="hidden md:flex space-x-8 select-none">
-                <a href="#capabilities" class="text-gray-300 hover:text-white transition duration-200">Capabilities</a>
-                <a href="#technology" class="text-gray-300 hover:text-white transition duration-200">Technology</a>
-                <a href="#applications" class="text-gray-300 hover:text-white transition duration-200">Applications</a>
-                <a href="#pricing" class="text-gray-300 hover:text-white transition duration-200">Pricing</a>
+                <a href="#features" class="text-gray-300 hover:text-white transition duration-200">Features</a>
+                <a href="#integrations" class="text-gray-300 hover:text-white transition duration-200">Integrations</a>
+                <a href="#technology" class="text-gray-300 hover:text-white transition duration-200">How it works</a>
+                <a href="#users" class="text-gray-300 hover:text-white transition duration-200">Who runs it</a>
+                <a href="#license" class="text-gray-300 hover:text-white transition duration-200">License</a>
                 <a href="#contact" class="text-gray-300 hover:text-white transition duration-200">Contact</a>
-                <a href="https://docs.cloudtak.io/docs/index.html" class="flex text-gray-300 hover:text-white transition duration-200">
+                <a href="https://docs.cloudtak.io/" class="flex text-gray-300 hover:text-white transition duration-200">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-book"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6l0 13" /><path d="M12 6l0 13" /><path d="M21 6l0 13" /></svg>
                     <span class='ms-2'>Docs</span>
                 </a>
 
                 <a
                     href='https://github.com/dfpc-coe/CloudTAK'
-                    title='Open In Github'
+                    title='CloudTAK on GitHub'
                     class="text-gray-300 hover:text-white transition duration-200"
                 >
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
@@ -65,7 +66,7 @@
             <div class="md:hidden">
                 <button
                     id="mobile-menu-button"
-                    alt="Toggle Mobile Menu"
+                    aria-label="Toggle menu"
                     class="text-gray-300 hover:text-white focus:outline-none"
                 >
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -76,12 +77,14 @@
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-gray-900 mt-4 py-2 rounded-lg shadow-lg">
-            <a href="#capabilities" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Capabilities</a>
-            <a href="#technology" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Technology</a>
-            <a href="#applications" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Applications</a>
-            <a href="#pricing" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Pricing</a>
+            <a href="#features" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Features</a>
+            <a href="#integrations" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Integrations</a>
+            <a href="#technology" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">How it works</a>
+            <a href="#users" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Who runs it</a>
+            <a href="#license" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">License</a>
             <a href="#contact" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Contact</a>
-            <a href="https://docs.cloudtak.io/docs/index.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Docs</a>
+            <a href="https://docs.cloudtak.io/" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">Docs</a>
+            <a href="https://github.com/dfpc-coe/CloudTAK" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-md">GitHub</a>
         </div>
     </header>
 
@@ -89,11 +92,11 @@
         <section
             id="home"
             class="relative h-screen flex items-center justify-center text-center bg-cover bg-center select-none"
-            style="background-image: url('./public/header.webp');"
+            style="background-image: url('/header.webp');"
         >
             <div class="absolute inset-0 bg-black opacity-70"></div>
             <div class="relative z-10 p-6 max-w-4xl mx-auto">
-                <img src="./public/cloudtak-text.svg" alt="CloudTAK Logo" class="mx-auto mb-10 h-16 md:h-20">
+                <img src="/cloudtak-text.svg" alt="CloudTAK" class="mx-auto mb-10 h-16 md:h-20">
 
                 <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
                     Unprecedented <span class="gradient-text">Situational Awareness</span> from Edge to Cloud
@@ -103,216 +106,150 @@
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                     <a
-                        href="#capabilities"
+                        href="#features"
                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     >Discover CloudTAK</a>
 
                     <a
-                        href="#applications"
+                        href="#users"
                         class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     >See It in Action</a>
                 </div>
             </div>
         </section>
 
-        <!-- Our Mission Section -->
-        <section id="mission" class="py-20 bg-gray-900">
+        <!-- Intro Section -->
+        <section id="intro" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6 text-center max-w-4xl">
-                <div class="flex flex-col items-center justify-center pt-12">
+                <div class="flex flex-col items-center justify-center pb-12">
                     <img
-                        src='mockup.png'
-                        alt='CloudTAK Mockup image on a stylized laptop'
-                        style='width: 50%;'
+                        src='/mockup.png'
+                        alt='CloudTAK map view on a laptop'
+                        class="w-full md:w-1/2"
                     />
                 </div>
 
-                <div class="flex flex-col items-center justify-center pb-12">
-                    <h2 class="text-lg font-bold text-white text-center max-w-xl">
-                        Our Mission: Empower Frontline Teams with Real-time Intelligence.
-                    </h2>
-                </div>
-                <p class="text-lg text-gray-300 leading-relaxed mb-2">
-                    CloudTAK is developed to augment the already powerful <a href='https://tak.gov' class='text-blue-400'>Team Awareness Kit (TAK)</a> ecosystem.
+                <p class="text-lg text-gray-300 leading-relaxed mb-4">
+                    The <a href='https://tak.gov' class='text-blue-400'>Team Awareness Kit (TAK)</a> is built for people in the field with a phone or tablet. CloudTAK is for the people supporting them: the EOC, the dispatch floor, the GIS desk, and anyone else who needs the live map on a laptop.
                 </p>
-                <p class="text-lg text-gray-300 leading-relaxed mb-2">
-                    CloudTAK provides browser based geospatial tools for use by operational staff supporting existing TAK users in the field. To do this we have brought together a group of engineers,
-                    developers, and subject matter experts to create a cloud-native solution that enhances the TAK experience with real-time data sharing, cross-platform interoperability, and secure communication.
-                </p>
-                <p class="text-lg text-gray-300 leading-relaxed mb-2">
-                    The best part? We offer this solution as an open-source project, ensuring that it remains accessible to all who need it, without the burden of licensing fees.
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    It connects to any TAK Server as a normal client, so field users see nothing different. It is built by the Colorado Division of Fire Prevention and Control and the Center of Excellence for Advanced Technology Aerial Firefighting, and released as open source.
                 </p>
             </div>
         </section>
 
-        <!-- Capabilities Section -->
-        <section id="capabilities" class="py-20 bg-gray-800">
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-gray-800">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col items-center justify-center pb-12">
-                    <h2 class="text-lg font-bold text-white text-center max-w-xl">
-                        CloudTAK: An Open-Source Suite of Powerful Solutions.
+                    <h2 class="text-2xl font-bold text-white text-center max-w-xl">
+                        What you get
                     </h2>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="card">
-                        <h3 class="text-2xl font-bold text-white mb-4">Shared Operating Picture</h3>
-                        <p class="text-gray-300 mb-4">Visualize team members, assets, and threats in real-time on a unified map. Collaborate with intuitive mapping tools and dynamic overlays.</p>
-                        <a
-                            href="https://docs.cloudtak.io/docs/index.html"
-                            class="text-indigo-400 hover:text-indigo-300 font-semibold"
-                        >Learn More &rarr;</a>
+                        <h3 class="text-xl font-bold text-white mb-4">Shared map</h3>
+                        <p class="text-gray-300 mb-4">Live positions of every TAK user, aircraft, and vehicle on your server. Drop markers, draw shapes, and share them with the field.</p>
+                        <a href="https://docs.cloudtak.io/user/" class="text-indigo-400 hover:text-indigo-300 font-semibold">User guide &rarr;</a>
                     </div>
                     <div class="card">
-                        <h3 class="text-2xl font-bold text-white mb-4">Secure Data Exchange</h3>
-                        <p class="text-gray-300 mb-4">Facilitate instant and secure sharing of critical information, including locations, messages, photos, and sensor feeds, even in low-bandwidth environments.</p>
-                        <a
-                            href="https://docs.cloudtak.io/docs/index.html"
-                            class="text-indigo-400 hover:text-indigo-300 font-semibold"
-                        >Learn More &rarr;</a>
+                        <h3 class="text-xl font-bold text-white mb-4">Chat and missions</h3>
+                        <p class="text-gray-300 mb-4">Direct and group chat with field users. Create and join TAK missions (Data Sync) to keep an incident's markers, files, and logs in one place.</p>
+                        <a href="https://docs.cloudtak.io/user/" class="text-indigo-400 hover:text-indigo-300 font-semibold">User guide &rarr;</a>
                     </div>
                     <div class="card">
-                        <h3 class="text-2xl font-bold text-white mb-4">Cross-Platform Interoperability</h3>
-                        <p class="text-gray-300 mb-4">Connect users on various devices (Android, iOS, Windows) through the TAK ecosystem (ATAK, iTAK, WinTAK), ensuring everyone operates with the same information.</p>
-                        <a
-                            href="https://docs.cloudtak.io/docs/index.html"
-                            class="text-indigo-400 hover:text-indigo-300 font-semibold"
-                        >Learn More &rarr;</a>
+                        <h3 class="text-xl font-bold text-white mb-4">Live video</h3>
+                        <p class="text-gray-300 mb-4">Watch streams from UAS, aircraft, and fixed cameras next to the map, and share them with field users.</p>
+                        <a href="https://docs.cloudtak.io/user/" class="text-indigo-400 hover:text-indigo-300 font-semibold">User guide &rarr;</a>
                     </div>
                     <div class="card">
-                        <h3 class="text-2xl font-bold text-white mb-4">Cloud-Native Architecture</h3>
-                        <p class="text-gray-300 mb-4">Benefit from rapid deployment, enhanced scalability, and reduced infrastructure costs with a modern cloud-based solution.</p>
-                        <a
-                            href="https://docs.cloudtak.io/docs/index.html"
-                            class="text-indigo-400 hover:text-indigo-300 font-semibold"
-                        >Learn More &rarr;</a>
+                        <h3 class="text-xl font-bold text-white mb-4">Files and data packages</h3>
+                        <p class="text-gray-300 mb-4">Import KML and GeoJSON, send and receive TAK data packages, and export what is on the map back out as KML or GeoJSON.</p>
+                        <a href="https://docs.cloudtak.io/user/" class="text-indigo-400 hover:text-indigo-300 font-semibold">User guide &rarr;</a>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-bold text-white mb-4">Basemaps and terrain</h3>
+                        <p class="text-gray-300 mb-4">Raster and vector basemaps, 3D terrain, and layers from ArcGIS Online or ArcGIS Enterprise. Bring your own icon sets to match your agency's symbology.</p>
+                        <a href="https://docs.cloudtak.io/admin/" class="text-indigo-400 hover:text-indigo-300 font-semibold">Admin guide &rarr;</a>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-bold text-white mb-4">Self hosted</h3>
+                        <p class="text-gray-300 mb-4">Run it with Docker Compose or deploy it into AWS with the included CloudFormation templates. It talks to your TAK Server and your data stays with you.</p>
+                        <a href="https://docs.cloudtak.io/deploy/" class="text-indigo-400 hover:text-indigo-300 font-semibold">Deploy guide &rarr;</a>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="flex flex-col items-center justify-center pt-12">
-                    <img
-                        src='CloudTAKFlow.png'
-                        alt='CloudTAK flow of data from cloudd to edge'
-                        style='width: 20%;'
-                    />
-                </div>
-
-                <div class="flex flex-col items-center justify-center pt-12">
-                    <h2 class="text-xl font-bold text-white text-center max-w-xl">
-                        CloudTAK Features
+        <!-- Integrations Section -->
+        <section id="integrations" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="flex flex-col items-center justify-center pb-12">
+                    <h2 class="text-2xl font-bold text-white text-center max-w-xl">
+                        Bring outside data into TAK
                     </h2>
                 </div>
 
-                <h3 class="pt-10 text-lg font-bold text-white mb-6 text-center">Realtime Situational Awareness</h3>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6 text-center">
+                    Most of the data an incident needs does not start out as TAK data. CloudTAK runs small ETL tasks on a schedule that fetch from an outside source, convert it to Cursor on Target, and push it to your TAK Server. There are over forty maintained integrations, including:
+                </p>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Real-time Situational Awareness of teams in the field</span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Secure Messaging (Chat)</span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Real Time UAS &amp; Aircraft Tracking</span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Integration with Automatic Vehicle Location Providers</span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Live Streaming Video from UAS or Fixed cameras</span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Integration with Satellite Personal Tracking Providers</span>
-                    </div>
-                </div>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-lg text-gray-300 mb-10">
+                    <li><a href="https://docs.cloudtak.io/integrations/etl-adsbx/" class="text-blue-400 hover:text-blue-300">ADS-B Exchange</a> aircraft positions</li>
+                    <li><a href="https://docs.cloudtak.io/integrations/etl-inreach/" class="text-blue-400 hover:text-blue-300">Garmin inReach</a> satellite trackers</li>
+                    <li><a href="https://docs.cloudtak.io/integrations/etl-caltopo/" class="text-blue-400 hover:text-blue-300">CalTopo</a> team maps</li>
+                    <li><a href="https://docs.cloudtak.io/integrations/etl-arcgis/" class="text-blue-400 hover:text-blue-300">Esri ArcGIS</a> feature layers</li>
+                    <li><a href="https://docs.cloudtak.io/integrations/etl-geotab/" class="text-blue-400 hover:text-blue-300">Geotab</a> vehicle locations</li>
+                    <li><a href="https://docs.cloudtak.io/integrations/etl-first-due/" class="text-blue-400 hover:text-blue-300">First Due</a> and <a href="https://docs.cloudtak.io/integrations/etl-active911/" class="text-blue-400 hover:text-blue-300">Active911</a> dispatches</li>
+                    <li><a href="https://docs.cloudtak.io/integrations/etl-usgs-gauges/" class="text-blue-400 hover:text-blue-300">USGS</a> stream gauges</li>
+                    <li><a href="https://docs.cloudtak.io/integrations/etl-cotrip-cameras/" class="text-blue-400 hover:text-blue-300">COtrip</a> road cameras, plows, and incidents</li>
+                </ul>
 
-                <h3 class="pt-10 text-lg font-bold text-white mb-6 text-center">GIS Integrations</h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Raster &amp; Vector Basemaps </span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">ArcGIS Enterprise &amp; ArcGIS Online Integration</span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Automatic Cloud Optimization of Large Files</span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">3D Digital Elevation Model Support</span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Data Driven Styling</span>
-                    </div>
-                </div>
-                <h3 class="pt-10 text-lg font-bold text-white mb-6 text-center">Extensibility</h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Open Source &amp; Free</span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Build in ETL Engine TAK Data</span>
-                    </div>
-                    <div class="card flex">
-                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-gray-300">Comprehensive ETL Plugin Toolkit</span>
-                    </div>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="https://docs.cloudtak.io/integrations/" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-center">All integrations</a>
+                    <a href="https://docs.cloudtak.io/etl/" class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-center">Write your own</a>
                 </div>
             </div>
         </section>
 
         <!-- Technology Section -->
-        <section id="technology" class="py-20 bg-gray-900">
+        <section id="technology" class="py-20 bg-gray-800">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col items-center justify-center pb-12">
-                    <h2 class="text-lg font-bold text-white text-center max-w-xl">
-                        Powered by CloudTAK
+                    <h2 class="text-2xl font-bold text-white text-center max-w-xl">
+                        How it works
                     </h2>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
                         <video
-                            src="demo.mp4"
+                            src="/demo.mp4"
                             loop
                             autoplay
-                            alt="CloudTAK Technology Demo"
+                            muted
+                            playsinline
                             class="rounded-xl shadow-lg mb-8 md:mb-0"
-                        >
+                        ></video>
                     </div>
                     <div>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            CloudTAK integrates the proven capabilities of the Team Awareness Kit (TAK) with a resilient, high-performance cloud backbone. This enables:
-                        </p>
                         <ul class="space-y-4 text-gray-300 text-lg">
                             <li class="flex items-start">
                                 <svg class="w-6 h-6 text-indigo-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span><strong class="text-white">Real-time Synchronization:</strong> Instantly update and share geospatial data, chat, and other critical information across all connected devices.</span>
+                                <span><strong class="text-white">A normal TAK client.</strong> CloudTAK speaks Cursor on Target to your existing TAK Server over the same certificate-authenticated connection as ATAK, iTAK, and WinTAK. There is nothing to change on the server or in the field.</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="w-6 h-6 text-indigo-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span><strong class="text-white">Flexible Deployment:</strong> Deploy CloudTAK rapidly in various operational environments, leveraging existing network infrastructure or small, incident-deployed servers.</span>
+                                <span><strong class="text-white">Sign in with your TAK account.</strong> Users log in with their TAK Server credentials and can add a passkey afterwards. Channel access follows the TAK Server groups the user already belongs to.</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="w-6 h-6 text-indigo-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span><strong class="text-white">Open and Extensible:</strong> Built on an open-source architecture, CloudTAK supports custom plugins and integrations, allowing you to tailor the system to your specific mission requirements.</span>
+                                <span><strong class="text-white">One deployment, many agencies.</strong> Each integration runs under its own connection and certificate, so one CloudTAK instance can feed data into different channels for different agencies without sharing credentials.</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="w-6 h-6 text-indigo-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span><strong class="text-white">Enhanced Security:</strong> Secure by design, CloudTAK ensures your operational data is protected with robust encryption and access controls.</span>
+                                <span><strong class="text-white">Extensible.</strong> Integrations are small Node.js tasks built on a shared toolkit, and the web client has a plugin system. If your data source is not on the list, the <a href="https://docs.cloudtak.io/etl/" class="text-blue-400 hover:text-blue-300">ETL guide</a> shows how to add it.</span>
                             </li>
                         </ul>
                     </div>
@@ -320,134 +257,139 @@
             </div>
         </section>
 
-        <!-- Applications Section -->
-        <section id="applications" class="py-20 bg-gray-800">
+        <!-- Users Section -->
+        <section id="users" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col items-center justify-center pb-12">
-                    <h2 class="text-lg font-bold text-white text-center max-w-xl">
-                        CloudTAK: Essential for Every Mission.
+                    <h2 class="text-2xl font-bold text-white text-center max-w-xl">
+                        Who runs it
                     </h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card text-center">
                         <img
-                            src="/public/fire.webp"
-                            alt="Fire Icon"
+                            src="/fire.webp"
+                            alt="Wildland firefighters"
                             width="250"
                             class="opacity-70 hover:opacity-100 transition-opacity duration-300 mx-auto mb-4 rounded-full"
                         >
                         <h3 class="text-2xl font-bold text-white mb-3">Fire &amp; EMS</h3>
-                        <p class="text-gray-300">Improve coordination for wildfires, search and rescue, disaster relief, and large-scale public safety incidents.</p>
+                        <p class="text-gray-300">Track engines, crews, and aircraft on a wildfire from the incident command post, and give the EOC the same map without handing out tablets.</p>
                     </div>
                     <div class="card text-center">
                         <img
-                            src="/public/leo.webp"
-                            alt="Law Enforcement Icon"
+                            src="/leo.webp"
+                            alt="Law enforcement officers"
                             width="250"
                             class="opacity-70 hover:opacity-100 transition-opacity duration-300 mx-auto mb-4 rounded-full"
                         >
                         <h3 class="text-2xl font-bold text-white mb-3">Law Enforcement</h3>
-                        <p class="text-gray-300">Enhanced awareness and communication for patrols, special operations, and incident command.</p>
+                        <p class="text-gray-300">Put dispatch, patrol vehicle locations, and body camera or fixed video on one screen for a watch commander or a planned event.</p>
                     </div>
                     <div class="card text-center">
                         <img
-                            src="/public/sar.webp"
-                            alt="Search and Rescue Icon"
+                            src="/sar.webp"
+                            alt="Search and rescue team"
                             width="250"
                             class="opacity-70 hover:opacity-100 transition-opacity duration-300 mx-auto mb-4 rounded-full"
                         >
                         <h3 class="text-2xl font-bold text-white mb-3">Search &amp; Rescue</h3>
-                        <p class="text-gray-300">Enhance tactical awareness and communication for patrols, special operations, and incident command.</p>
+                        <p class="text-gray-300">Follow team and aircraft tracks, share CalTopo and inReach positions, and keep incident command on one map as the search area changes.</p>
                     </div>
+                </div>
+
+                <p class="pt-16 text-lg text-gray-300 text-center">
+                    CloudTAK is built by the Center of Excellence and runs in production at COTAK and TAK.nz.
+                </p>
+                <div class="pt-8 flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                    <a href='https://www.cofiretech.org/'>
+                        <img src="/coelogo.svg" alt="Center of Excellence for Advanced Technology Aerial Firefighting" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                    </a>
+                    <a href='https://cotak.gov/'>
+                        <img src="/customer-cotak.svg" alt="COTAK, the Colorado TAK program" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                    </a>
+                    <a href='https://tak.nz'>
+                        <img src="/customer-tak-nz.svg" alt="TAK.nz" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="pricing" class="py-20 bg-gray-900">
+        <!-- License Section -->
+        <section id="license" class="py-20 bg-gray-800">
             <div class="container mx-auto px-6 text-center max-w-3xl">
                 <div class="flex flex-col items-center justify-center pb-12">
                     <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 pb-10">
                         <svg  xmlns="http://www.w3.org/2000/svg"  width="100"  height="100"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-free-rights"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M13.867 9.75c-.246 -.48 -.708 -.769 -1.2 -.75h-1.334c-.736 0 -1.333 .67 -1.333 1.5c0 .827 .597 1.499 1.333 1.499h1.334c.736 0 1.333 .671 1.333 1.5c0 .828 -.597 1.499 -1.333 1.499h-1.334c-.492 .019 -.954 -.27 -1.2 -.75" /><path d="M12 7v2" /><path d="M12 15v2" /><path d="M6 6l1.5 1.5" /><path d="M16.5 16.5l1.5 1.5" /></svg>
                     </div>
-                    <h2 class="text-lg font-bold text-white text-center max-w-xl">
-                        Pricing
+                    <h2 class="text-2xl font-bold text-white text-center max-w-xl">
+                        License
                     </h2>
                 </div>
 
                 <p class="text-lg text-gray-300 leading-relaxed">
-                    CloudTAK is developed in the open and at no cost by a consortium of public safety professionals, software engineers, and open-source advocates dedicated to enhancing situational awareness for frontline teams.
+                    CloudTAK is free software under the <a class='text-blue-400' href='https://www.gnu.org/licenses/agpl-3.0.en.html'>GNU AGPL v3</a>. You can run it, change it, and redistribute it at no cost. If you host a modified version for others, the AGPL asks you to share your changes.
                 </p>
 
                 <p class="pt-6 text-lg text-gray-300 leading-relaxed">
-                    Licensed under the permission <a class='text-blue-400' href='https://www.gnu.org/licenses/agpl-3.0.en.html'>AGPL</a> CloudTAK is, and will always be, free to use, modify, distribute, &amp; deploy. Our goal is to empower teams with the best tools available without the price tag.
+                    Development is funded by the State of Colorado and done in the open on <a class='text-blue-400' href='https://github.com/dfpc-coe/CloudTAK'>GitHub</a>. There is no paid tier and no hosted service to buy. If you need help standing it up, see <a class='text-blue-400' href='#contact'>Contact</a>.
                 </p>
-
-                <div class="pt-16 flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                    <a href='https://www.cofiretech.org/'>
-                        <img src="coelogo.svg" alt="Center of Excellence Logo" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                    </a>
-                    <a href='https://cotak.gov/'>
-                        <img src="customer-cotak.svg" alt="COTAK Logo" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                    </a>
-                    <a href='https://tak.nz'>
-                        <img src="customer-tak-nz.svg" alt="TAK.nz" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                    </a>
-                </div>
-            </div>
-        </section>
-
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-800">
+        <section id="contact" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6 text-center max-w-2xl">
                 <div class="flex flex-col items-center justify-center pb-12">
-                    <h2 class="text-lg font-bold text-white text-center max-w-xl">
-                        Partner with CloudTAK.
+                    <h2 class="text-2xl font-bold text-white text-center max-w-xl">
+                        Questions?
                     </h2>
                 </div>
                 <p class="text-lg text-gray-300 mb-10">
-                    Ready to transform your team's situational awareness? Contact us to learn more, schedule a demo, or discuss a customized deployment.
+                    Bug reports and feature requests go to the <a class='text-blue-400' href='https://github.com/dfpc-coe/CloudTAK/issues'>GitHub issue tracker</a>. For anything else, including a demo or help with a deployment, email the COTAK team.
                 </p>
 
                 <a
                     href="mailto:support@cotak.gov"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
-                >Contact Us</a>
+                >support@cotak.gov</a>
 
                 <a
-                    href="https://docs.cloudtak.io/docs/index.html"
+                    href="https://docs.cloudtak.io/deploy/"
                     class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
-                >Get Started Now</a>
+                >Deploy CloudTAK</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-10 px-6">
+    <footer class="bg-gray-900 py-10 px-6 border-t border-gray-800">
         <div class="container mx-auto text-center text-gray-400">
-            <div class="flex flex-wrap justify-center space-x-6 mb-6">
-                <a href="#capabilities" class="hover:text-white transition duration-200">Capabilities</a>
-                <a href="#technology" class="hover:text-white transition duration-200">Technology</a>
-                <a href="#applications" class="hover:text-white transition duration-200">Applications</a>
-                <a href="#pricing" class="hover:text-white transition duration-200">About</a>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6">
+                <a href="#features" class="hover:text-white transition duration-200">Features</a>
+                <a href="#integrations" class="hover:text-white transition duration-200">Integrations</a>
+                <a href="#users" class="hover:text-white transition duration-200">Who runs it</a>
+                <a href="#license" class="hover:text-white transition duration-200">License</a>
                 <a href="#contact" class="hover:text-white transition duration-200">Contact</a>
-                <a href="https://docs.cloudtak.io/docs/index.html" class="hover:text-white transition duration-200">Documentation</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6">
+                <a href="https://docs.cloudtak.io/" class="hover:text-white transition duration-200">Documentation</a>
+                <a href="https://github.com/dfpc-coe/CloudTAK" class="hover:text-white transition duration-200">GitHub</a>
+                <a href="https://github.com/dfpc-coe/CloudTAK/releases" class="hover:text-white transition duration-200">Releases</a>
+                <a href="/privacy.html" class="hover:text-white transition duration-200">Privacy</a>
+                <a href="/security.html" class="hover:text-white transition duration-200">Security</a>
             </div>
             <div class="flex justify-center space-x-4 mb-6">
-                <!-- Placeholder for social media icons -->
-                <a href="https://www.facebook.com/COEATAF/" class="text-gray-400 hover:text-white transition duration-200">
+                <a href="https://www.facebook.com/COEATAF/" aria-label="Facebook" class="text-gray-400 hover:text-white transition duration-200">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
                 </a>
-                <a href="https://www.instagram.com/cofiretech?igsh=MXB3a2hqdTQ4bW1xMQ==" class="text-gray-400 hover:text-white transition duration-200">
+                <a href="https://www.instagram.com/cofiretech?igsh=MXB3a2hqdTQ4bW1xMQ==" aria-label="Instagram" class="text-gray-400 hover:text-white transition duration-200">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
                 </a>
-                <a href="https://www.linkedin.com/company/cofiretech/" class="text-gray-400 hover:text-white transition duration-200">
+                <a href="https://www.linkedin.com/company/cofiretech/" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition duration-200">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg>
                 </a>
-                <a href="http://www.youtube.com/@coetak" class="text-gray-400 hover:text-white transition duration-200">
+                <a href="http://www.youtube.com/@coetak" aria-label="YouTube" class="text-gray-400 hover:text-white transition duration-200">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" /></svg>
                 </a>
             </div>
@@ -479,7 +421,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu when clicking outside (optional, but good UX)
+        // Close mobile menu when clicking outside
         document.addEventListener('click', (event) => {
             const isClickInside = mobileMenu.contains(event.target) || mobileMenuButton.contains(event.target);
             if (!isClickInside && !mobileMenu.classList.contains('hidden')) {
@@ -489,4 +431,3 @@
     </script>
 </body>
 </html>
-
